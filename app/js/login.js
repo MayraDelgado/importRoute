@@ -6,19 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var GeotabLogin = (function () {
 
-    /*var api = GeotabApi(function (authenticationCallback) {
-      authenticationCallback('my.geotab.com', 'mmfleet', 'mayra.delgado@metricamovil.com', 'Amoalverde12#', function (errorString) {
-        alert(errorString);
-      });
-    }, false);*/
-
     var authenticationCallback,
       debug = {
         enabled: false,
-        server: "my.geotab.com",
-        database: "mmfleet",
-        email: "mayra.delgado@metricamovil.com",
-        password: "Amoalverde12#"
+        server: "",
+        database: "",
+        email: "",
+        password: ""
       };
 
     function initializeGeotabApi() {
@@ -116,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         id: "server",
         type: "text",
         placeholder: "my.geotab.com",
-        value: ("my.geotab.com")
+        value: (debug.enabled === true ? debug.server : undefined)
       }));
 
       // Build database field
@@ -128,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
         id: "database",
         type: "text",
         placeholder: "Base de datos",
-        value: ("mmfleet")
+        value: (debug.enabled === true ? debug.database : undefined)
       }));
 
       // Build email field
@@ -140,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
         id: "email",
         type: "email",
         placeholder: "Email",
-        value: ("mayra.delgado@metricamovil.com")
+        value: (debug.enabled === true ? debug.email : undefined)
       }));
 
       // Build password field
@@ -152,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
         id: "password",
         type: "password",
         placeholder: "",
-        value: ("Amoalverde12#")
+        value: (debug.enabled === true ? debug.password : undefined)
       }));
 
       button.setAttribute("id", "signin");
